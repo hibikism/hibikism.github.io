@@ -35,14 +35,17 @@
     		<div class="blurb">
         		<h1>Hibiki Web Page</h1>
 			<p>Test web page</p>
-			<div>
-				<p>File Upload</p>
-				<input type="file" id="myFile" onchange="updateSize();">
-				
-			</div>
-			<div>
-				file size is <span id="fileSize">0</span>
-			</div>
+			<form name="uploadForm">
+				<div>
+					<p>File Upload</p>
+					<input id="myFile" type="file" name="myFiles" onchange="updateSize();" multiple>
+
+				</div>
+				<div>
+					file size is <span id="fileSize">0</span>
+				</div>
+				<p><input type="submit" value="Send file"></p>
+			</form>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
 	</body>
