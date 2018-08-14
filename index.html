@@ -15,7 +15,15 @@
 		<div class="container">
     		<div class="blurb">
         		<h1>Hibiki Web Page</h1>
-				<p>Test web page</p>
+			<p>Test web page</p>
+			<div>
+				<p>File Upload</p>
+				<input type="file" id="myFile">
+				<script>
+					var myUploadedFile = document.getElementById("myFile").files[0];
+					console.log("uploaded file "+myUploadedFile);
+				</script>
+			</div>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
 	</body>
