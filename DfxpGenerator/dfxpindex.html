@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<script>
+	function updateSize() {
+		var nBytes = 0,
+		oFiles = document.getElementById("myFile").files,
+		nFiles = oFiles.length;
+		for (var nFileId = 0; nFileId < nFiles; nFileId++) {
+			nBytes += oFiles[nFileId].size;
+		}
+		var sOutput = nBytes + " bytes";
+		// optional code for multiples approximation
+		for (var aMultiples = ["KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"], nMultiple = 0, nApprox = nBytes / 1024; nApprox > 1; nApprox /= 1024, nMultiple++) {
+			sOutput = nApprox.toFixed(3) + " " + aMultiples[nMultiple] + " (" + nBytes + " bytes)";
+		}
+		// end of optional code
+		//document.getElementById("fileNum").innerHTML = nFiles;
+		document.getElementById("fileSize").innerHTML = sOutput;
+	}
+</script>
+
+<html>
+	<head>
+		<title>DFXP Generator</title>
+	</head>
+	<body>
+		<div class="container">
+    		<div class="blurb">
+        		<h1>DFXP Generator</h1>
+			<p>Test web page</p>
+			<form name="uploadForm">
+				<div>
+					<p>File Upload</p>
+					<input id="myFile" type="file" name="myFiles" onchange="updateSize();" multiple>
+
+				</div>
+				<div>
+					file size is <span id="fileSize">0</span>
+				</div>
+			</form>
+    		</div><!-- /.blurb -->
+		</div><!-- /.container -->
+	</body>
+</html>
